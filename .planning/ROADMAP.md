@@ -28,11 +28,11 @@ Decimal phases appear between their surrounding integers in numeric order.
   1. Worker can accept audio input via both URL download and base64 encoding, and the input resolver is importable by any worker repo
   2. Worker can download models from HuggingFace using the generalized download utility, with volume caching and fallback to /tmp (same pattern as llama.cpp worker)
   3. Docker image built from the template Dockerfile is under 8GB and follows multi-stage build with runtime-only CUDA base
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 01-01: TBD
-- [ ] 01-02: TBD
+- [ ] 01-01-PLAN.md — Core Python utilities: generalized download_model.py and audio_utils.py with full test suite
+- [ ] 01-02-PLAN.md — Template Dockerfile, handler skeleton, and supporting files (hub.json, test inputs)
 
 ### Phase 2: STT Worker
 **Goal**: Users can transcribe audio with word-level timestamps, subtitle output, automatic language detection, speaker diarization, and batch processing -- deployed as a RunPod serverless endpoint with one-click setup.
@@ -99,7 +99,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Shared Worker Foundation | 0/? | Not started | - |
+| 1. Shared Worker Foundation | 0/2 | Planning complete | - |
 | 2. STT Worker | 0/? | Not started | - |
 | 3. TTS Enhancement | 0/? | Not started | - |
 | 4. Voice Cloning Worker | 0/? | Not started | - |
