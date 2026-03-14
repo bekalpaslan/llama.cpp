@@ -31,11 +31,27 @@ def sample_audio_bytes():
         frequency=440.0,
         noise_level=0.0,
     ):
-        t = np.linspace(0, duration, int(sample_rate * duration), endpoint=False)
-        signal = 0.5 * np.sin(2 * np.pi * frequency * t)
+        n_samples = int(sample_rate * duration)
+        t = np.linspace(0, duration, n_samples, endpoint=False)
+        tone = 0.5 * np.sin(2 * np.pi * frequency * t)
+
+        # Create speech-like envelope: alternating 1s bursts and 0.5s silence
+        # This gives the SNR estimator silence frames as noise floor
+        envelope = np.zeros(n_samples)
+        burst_len = int(sample_rate * 1.0)
+        gap_len = int(sample_rate * 0.5)
+        cycle_len = burst_len + gap_len
+        for i in range(n_samples):
+            pos_in_cycle = i % cycle_len
+            if pos_in_cycle < burst_len:
+                envelope[i] = 1.0
+            else:
+                envelope[i] = 0.001  # near-silent gap
+
+        signal = tone * envelope
 
         if noise_level > 0:
-            noise = np.random.default_rng(42).normal(0, noise_level, len(t))
+            noise = np.random.default_rng(42).normal(0, noise_level, n_samples)
             signal = signal + noise
 
         if channels > 1:
