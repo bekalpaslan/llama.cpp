@@ -16,21 +16,15 @@ RunPod Serverless worker that serves any GGUF model from HuggingFace via llama.c
 
 ### Deploy on RunPod
 
-1. Build and push the Docker image:
-   ```bash
-   docker build --platform linux/amd64 -t yourusername/llamacpp-worker:latest .
-   docker push yourusername/llamacpp-worker:latest
-   ```
-
-2. Create a Serverless Endpoint in RunPod console pointing to your image.
-
+1. Create a **Serverless Endpoint** in the RunPod console.
+2. Set the container image to `alpaslanbek/llamacpp-worker:latest`.
 3. Set environment variables:
    - `HF_REPO_ID` — e.g. `bartowski/Qwen_Qwen3.5-9B-GGUF`
    - `HF_FILENAME` — e.g. `Qwen_Qwen3.5-9B-Q4_K_M.gguf` (optional, auto-detects)
 
 ### Deploy via RunPod Hub
 
-Submit this repo to RunPod Hub for one-click deploy with model presets. See `.runpod/hub.json` for the full preset list.
+Use one of the 35 pre-configured model presets for one-click deploy. See `.runpod/hub.json` for the full preset list.
 
 ## Input Formats
 
@@ -132,12 +126,20 @@ Add `"stream": true` to any messages or OpenAI passthrough input. Poll the `/str
 | OpenAI GPT-oss 20B | RTX A5000 |
 | SmolLM3 3B | RTX A4000 |
 
-## Local Testing
+## Development
+
+### Local Testing
 
 ```bash
-# Test with a local GGUF
 export HF_REPO_ID="bartowski/Qwen_Qwen3.5-9B-GGUF"
 python handler.py --rp_serve_api
+```
+
+### Building the Image
+
+```bash
+docker build --platform linux/amd64 -t alpaslanbek/llamacpp-worker:latest .
+docker push alpaslanbek/llamacpp-worker:latest
 ```
 
 ## License
