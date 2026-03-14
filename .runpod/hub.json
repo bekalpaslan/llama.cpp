@@ -1,0 +1,317 @@
+{
+  "title": "LlamaCpp GGUF Worker",
+  "description": "Serve any GGUF model from HuggingFace via llama.cpp with an OpenAI-compatible API. Supports GPU offloading, flash attention, quantized KV cache, and streaming.",
+  "category": "llm",
+  "env": [
+    {
+      "key": "HF_REPO_ID",
+      "label": "HuggingFace Repository",
+      "description": "HuggingFace repo containing the GGUF model (e.g. bartowski/Qwen_Qwen3-8B-GGUF)",
+      "required": true,
+      "type": "string"
+    },
+    {
+      "key": "HF_FILENAME",
+      "label": "GGUF Filename",
+      "description": "Specific GGUF file to download. Leave blank to auto-detect the best Q4_K_M file.",
+      "required": false,
+      "type": "string"
+    },
+    {
+      "key": "HF_TOKEN",
+      "label": "HuggingFace Token",
+      "description": "Auth token for gated models (optional)",
+      "required": false,
+      "type": "string"
+    },
+    {
+      "key": "MODEL_NAME",
+      "label": "Model Display Name",
+      "description": "Name shown in /v1/models endpoint",
+      "required": false,
+      "default": "default",
+      "type": "string"
+    },
+    {
+      "key": "N_GPU_LAYERS",
+      "label": "GPU Layers",
+      "description": "Number of layers to offload to GPU (99 = all)",
+      "required": false,
+      "default": "99",
+      "type": "string"
+    },
+    {
+      "key": "CTX_SIZE",
+      "label": "Context Size",
+      "description": "Maximum context window size in tokens",
+      "required": false,
+      "default": "8192",
+      "type": "string"
+    },
+    {
+      "key": "N_PARALLEL",
+      "label": "Parallel Slots",
+      "description": "Number of concurrent inference slots",
+      "required": false,
+      "default": "1",
+      "type": "string"
+    },
+    {
+      "key": "FLASH_ATTN",
+      "label": "Flash Attention",
+      "description": "Enable flash attention (on/off/auto)",
+      "required": false,
+      "default": "on",
+      "type": "string"
+    },
+    {
+      "key": "KV_CACHE_TYPE",
+      "label": "KV Cache Quantization",
+      "description": "KV cache type: f16, f32, q8_0, q4_0, q4_1",
+      "required": false,
+      "default": "f16",
+      "type": "string"
+    },
+    {
+      "key": "EXTRA_ARGS",
+      "label": "Extra Arguments",
+      "description": "Additional llama-server CLI flags (space-separated)",
+      "required": false,
+      "type": "string"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Qwen 3.5 35B-A3B (Q4_K_M)",
+      "description": "MoE model with only 3B active parameters. Surpasses the previous 235B flagship on most benchmarks. Best value pick.",
+      "env": {
+        "HF_REPO_ID": "bartowski/Qwen_Qwen3.5-35B-A3B-GGUF",
+        "HF_FILENAME": "Qwen_Qwen3.5-35B-A3B-Q4_K_M.gguf",
+        "MODEL_NAME": "qwen3.5-35b-a3b",
+        "CTX_SIZE": "8192"
+      },
+      "gpu": "NVIDIA RTX A5000",
+      "volume_size": 50
+    },
+    {
+      "name": "Qwen 3.5 9B (Q4_K_M)",
+      "description": "Compact, high-quality general-purpose model. Runs on budget GPUs.",
+      "env": {
+        "HF_REPO_ID": "bartowski/Qwen_Qwen3.5-9B-GGUF",
+        "HF_FILENAME": "Qwen_Qwen3.5-9B-Q4_K_M.gguf",
+        "MODEL_NAME": "qwen3.5-9b",
+        "CTX_SIZE": "8192"
+      },
+      "gpu": "NVIDIA RTX A4000",
+      "volume_size": 20
+    },
+    {
+      "name": "Qwen 3.5 27B (Q4_K_M)",
+      "description": "Dense 27B model that ties GPT-5 mini on SWE-bench. Fully open-weight.",
+      "env": {
+        "HF_REPO_ID": "bartowski/Qwen_Qwen3.5-27B-GGUF",
+        "HF_FILENAME": "Qwen_Qwen3.5-27B-Q4_K_M.gguf",
+        "MODEL_NAME": "qwen3.5-27b",
+        "CTX_SIZE": "8192"
+      },
+      "gpu": "NVIDIA RTX A5000",
+      "volume_size": 50
+    },
+    {
+      "name": "Qwen 3.5 4B (Q4_K_M)",
+      "description": "Ultra-lightweight model for edge/budget deployments.",
+      "env": {
+        "HF_REPO_ID": "bartowski/Qwen_Qwen3.5-4B-GGUF",
+        "HF_FILENAME": "Qwen_Qwen3.5-4B-Q4_K_M.gguf",
+        "MODEL_NAME": "qwen3.5-4b",
+        "CTX_SIZE": "8192"
+      },
+      "gpu": "NVIDIA RTX A4000",
+      "volume_size": 10
+    },
+    {
+      "name": "Qwen 3.5 122B-A10B (Q4_K_M)",
+      "description": "Large MoE model with 10B active params. Near-frontier quality for complex tasks.",
+      "env": {
+        "HF_REPO_ID": "bartowski/Qwen_Qwen3.5-122B-A10B-GGUF",
+        "HF_FILENAME": "Qwen_Qwen3.5-122B-A10B-Q4_K_M.gguf",
+        "MODEL_NAME": "qwen3.5-122b-a10b",
+        "CTX_SIZE": "8192"
+      },
+      "gpu": "NVIDIA A100 80GB",
+      "volume_size": 150
+    },
+    {
+      "name": "DeepSeek R1 Distill Qwen 7B (Q4_K_M)",
+      "description": "Reasoning model distilled from DeepSeek R1. Great chain-of-thought on budget hardware.",
+      "env": {
+        "HF_REPO_ID": "bartowski/DeepSeek-R1-Distill-Qwen-7B-GGUF",
+        "HF_FILENAME": "DeepSeek-R1-Distill-Qwen-7B-Q4_K_M.gguf",
+        "MODEL_NAME": "deepseek-r1-distill-qwen-7b",
+        "CTX_SIZE": "8192",
+        "EXTRA_ARGS": "--reasoning-format deepseek"
+      },
+      "gpu": "NVIDIA RTX A4000",
+      "volume_size": 20
+    },
+    {
+      "name": "DeepSeek R1 Distill Qwen 14B (Q4_K_M)",
+      "description": "Mid-size reasoning model. Strong math and coding performance.",
+      "env": {
+        "HF_REPO_ID": "bartowski/DeepSeek-R1-Distill-Qwen-14B-GGUF",
+        "HF_FILENAME": "DeepSeek-R1-Distill-Qwen-14B-Q4_K_M.gguf",
+        "MODEL_NAME": "deepseek-r1-distill-qwen-14b",
+        "CTX_SIZE": "8192",
+        "EXTRA_ARGS": "--reasoning-format deepseek"
+      },
+      "gpu": "NVIDIA RTX A4000",
+      "volume_size": 30
+    },
+    {
+      "name": "DeepSeek R1 Distill Qwen 32B (Q4_K_M)",
+      "description": "Largest reasoning distill. Excellent for complex multi-step problems.",
+      "env": {
+        "HF_REPO_ID": "bartowski/DeepSeek-R1-Distill-Qwen-32B-GGUF",
+        "HF_FILENAME": "DeepSeek-R1-Distill-Qwen-32B-Q4_K_M.gguf",
+        "MODEL_NAME": "deepseek-r1-distill-qwen-32b",
+        "CTX_SIZE": "8192",
+        "EXTRA_ARGS": "--reasoning-format deepseek"
+      },
+      "gpu": "NVIDIA RTX A5000",
+      "volume_size": 50
+    },
+    {
+      "name": "DeepSeek R1 Distill Llama 8B (Q4_K_M)",
+      "description": "Reasoning model on the Llama backbone. Good alternative to the Qwen variant.",
+      "env": {
+        "HF_REPO_ID": "bartowski/DeepSeek-R1-Distill-Llama-8B-GGUF",
+        "HF_FILENAME": "DeepSeek-R1-Distill-Llama-8B-Q4_K_M.gguf",
+        "MODEL_NAME": "deepseek-r1-distill-llama-8b",
+        "CTX_SIZE": "8192",
+        "EXTRA_ARGS": "--reasoning-format deepseek"
+      },
+      "gpu": "NVIDIA RTX A4000",
+      "volume_size": 20
+    },
+    {
+      "name": "Qwen 3 8B (Q4_K_M)",
+      "description": "Proven general-purpose model. Strong multilingual and coding capabilities.",
+      "env": {
+        "HF_REPO_ID": "bartowski/Qwen_Qwen3-8B-GGUF",
+        "HF_FILENAME": "Qwen_Qwen3-8B-Q4_K_M.gguf",
+        "MODEL_NAME": "qwen3-8b",
+        "CTX_SIZE": "8192"
+      },
+      "gpu": "NVIDIA RTX A4000",
+      "volume_size": 20
+    },
+    {
+      "name": "Qwen 3 14B (Q4_K_M)",
+      "description": "Mid-size model punching above its weight. Great quality-to-cost ratio.",
+      "env": {
+        "HF_REPO_ID": "bartowski/Qwen_Qwen3-14B-GGUF",
+        "HF_FILENAME": "Qwen_Qwen3-14B-Q4_K_M.gguf",
+        "MODEL_NAME": "qwen3-14b",
+        "CTX_SIZE": "8192"
+      },
+      "gpu": "NVIDIA RTX A4000",
+      "volume_size": 30
+    },
+    {
+      "name": "Qwen 3 32B (Q4_K_M)",
+      "description": "High-quality dense model for demanding tasks.",
+      "env": {
+        "HF_REPO_ID": "bartowski/Qwen_Qwen3-32B-GGUF",
+        "HF_FILENAME": "Qwen_Qwen3-32B-Q4_K_M.gguf",
+        "MODEL_NAME": "qwen3-32b",
+        "CTX_SIZE": "8192"
+      },
+      "gpu": "NVIDIA RTX A5000",
+      "volume_size": 50
+    },
+    {
+      "name": "Llama 3.1 8B Instruct (Q4_K_M)",
+      "description": "Meta's flagship small model. Huge community, excellent instruction following.",
+      "env": {
+        "HF_REPO_ID": "bartowski/Meta-Llama-3.1-8B-Instruct-GGUF",
+        "HF_FILENAME": "Meta-Llama-3.1-8B-Instruct-Q4_K_M.gguf",
+        "MODEL_NAME": "llama-3.1-8b-instruct",
+        "CTX_SIZE": "8192"
+      },
+      "gpu": "NVIDIA RTX A4000",
+      "volume_size": 20
+    },
+    {
+      "name": "Llama 3.3 70B Instruct (Q4_K_M)",
+      "description": "Meta's largest open model. Near-frontier performance for complex reasoning.",
+      "env": {
+        "HF_REPO_ID": "bartowski/Llama-3.3-70B-Instruct-GGUF",
+        "HF_FILENAME": "Llama-3.3-70B-Instruct-Q4_K_M.gguf",
+        "MODEL_NAME": "llama-3.3-70b-instruct",
+        "CTX_SIZE": "8192"
+      },
+      "gpu": "NVIDIA A6000",
+      "volume_size": 100
+    },
+    {
+      "name": "Mistral Small 3.2 24B Instruct (Q4_K_M)",
+      "description": "Mistral's efficient instruction model. Strong on European languages.",
+      "env": {
+        "HF_REPO_ID": "bartowski/mistralai_Mistral-Small-3.2-24B-Instruct-2506-GGUF",
+        "HF_FILENAME": "mistralai_Mistral-Small-3.2-24B-Instruct-2506-Q4_K_M.gguf",
+        "MODEL_NAME": "mistral-small-3.2-24b",
+        "CTX_SIZE": "8192"
+      },
+      "gpu": "NVIDIA RTX A5000",
+      "volume_size": 40
+    },
+    {
+      "name": "Devstral Small 2 24B (Q4_K_M)",
+      "description": "Mistral's coding specialist. Optimized for code generation and review.",
+      "env": {
+        "HF_REPO_ID": "bartowski/mistralai_Devstral-Small-2-24B-Instruct-2512-GGUF",
+        "HF_FILENAME": "mistralai_Devstral-Small-2-24B-Instruct-2512-Q4_K_M.gguf",
+        "MODEL_NAME": "devstral-small-2-24b",
+        "CTX_SIZE": "16384"
+      },
+      "gpu": "NVIDIA RTX A5000",
+      "volume_size": 40
+    },
+    {
+      "name": "GLM-4 9B (Q4_K_M)",
+      "description": "Rising star from Tsinghua. Competes with models twice its size.",
+      "env": {
+        "HF_REPO_ID": "bartowski/THUDM_GLM-4-9B-0414-GGUF",
+        "HF_FILENAME": "THUDM_GLM-4-9B-0414-Q4_K_M.gguf",
+        "MODEL_NAME": "glm-4-9b",
+        "CTX_SIZE": "8192"
+      },
+      "gpu": "NVIDIA RTX A4000",
+      "volume_size": 20
+    },
+    {
+      "name": "Phi-4 14B (Q4_K_M)",
+      "description": "Microsoft's compact powerhouse. Exceptional reasoning for its size.",
+      "env": {
+        "HF_REPO_ID": "bartowski/phi-4-GGUF",
+        "HF_FILENAME": "phi-4-Q4_K_M.gguf",
+        "MODEL_NAME": "phi-4",
+        "CTX_SIZE": "8192"
+      },
+      "gpu": "NVIDIA RTX A4000",
+      "volume_size": 30
+    },
+    {
+      "name": "Gemma 3 12B (Q4_K_M)",
+      "description": "Google's open model. Strong instruction following and multilingual support.",
+      "env": {
+        "HF_REPO_ID": "bartowski/google_gemma-3-12b-it-GGUF",
+        "HF_FILENAME": "google_gemma-3-12b-it-Q4_K_M.gguf",
+        "MODEL_NAME": "gemma-3-12b",
+        "CTX_SIZE": "8192"
+      },
+      "gpu": "NVIDIA RTX A4000",
+      "volume_size": 20
+    }
+  ]
+}

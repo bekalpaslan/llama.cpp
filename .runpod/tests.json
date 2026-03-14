@@ -1,0 +1,63 @@
+{
+  "tests": [
+    {
+      "name": "Chat completion - basic",
+      "input": {
+        "messages": [
+          {"role": "user", "content": "Say hello in exactly 3 words."}
+        ],
+        "max_tokens": 32,
+        "temperature": 0.1
+      },
+      "expected_status": 200,
+      "timeout": 60
+    },
+    {
+      "name": "Chat completion - system prompt",
+      "input": {
+        "messages": [
+          {"role": "system", "content": "You are a helpful assistant. Be brief."},
+          {"role": "user", "content": "What is 2+2?"}
+        ],
+        "max_tokens": 32,
+        "temperature": 0.0
+      },
+      "expected_status": 200,
+      "timeout": 60
+    },
+    {
+      "name": "Simple prompt",
+      "input": {
+        "prompt": "The capital of France is",
+        "max_tokens": 16,
+        "temperature": 0.0
+      },
+      "expected_status": 200,
+      "timeout": 60
+    },
+    {
+      "name": "OpenAI passthrough - chat",
+      "input": {
+        "openai_route": "/v1/chat/completions",
+        "openai_input": {
+          "messages": [
+            {"role": "user", "content": "Reply with just the word 'ok'."}
+          ],
+          "max_tokens": 8,
+          "temperature": 0.0
+        }
+      },
+      "expected_status": 200,
+      "timeout": 60
+    },
+    {
+      "name": "OpenAI passthrough - models",
+      "input": {
+        "openai_route": "/v1/models",
+        "openai_input": {}
+      },
+      "expected_status": 200,
+      "timeout": 10
+    }
+  ]
+}
