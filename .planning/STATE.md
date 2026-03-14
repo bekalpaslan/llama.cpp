@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 02-01-PLAN.md (Core transcription engine and format utilities)
+stopped_at: Completed 02-02-PLAN.md (Handler with diarization and batch processing)
 last_updated: "2026-03-14T06:20:00.691Z"
-last_activity: 2026-03-14 -- Completed 02-01 (Core transcription engine and format utilities)
+last_activity: 2026-03-14 -- Completed 02-02 (Handler with diarization and batch processing)
 progress:
   total_phases: 5
   completed_phases: 1
   total_plans: 5
-  completed_plans: 3
-  percent: 60
+  completed_plans: 4
+  percent: 80
 ---
 
 # Project State
@@ -21,33 +21,33 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-14)
 
 **Core value:** One-click deployment of AI inference workers on RunPod -- any model type, any GPU, minimal configuration.
-**Current focus:** Phase 2: STT Worker -- Plan 01 complete, Plan 02 next (handler wiring)
+**Current focus:** Phase 2: STT Worker -- Plan 02 complete, Plan 03 next (Dockerfile and deployment)
 
 ## Current Position
 
 Phase: 2 of 5 (STT Worker)
-Plan: 1 of 3 in current phase
+Plan: 2 of 3 in current phase
 Status: In Progress
-Last activity: 2026-03-14 -- Completed 02-01 (Core transcription engine and format utilities)
+Last activity: 2026-03-14 -- Completed 02-02 (Handler with diarization and batch processing)
 
-Progress: [██████░░░░] 60%
+Progress: [████████░░] 80%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 3
+- Total plans completed: 4
 - Average duration: 4 min
-- Total execution time: 0.2 hours
+- Total execution time: 0.3 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 1 - Shared Worker Foundation | 2 | 8 min | 4 min |
-| 2 - STT Worker | 1 | 4 min | 4 min |
+| 2 - STT Worker | 2 | 9 min | 4.5 min |
 
 **Recent Trend:**
-- Last 5 plans: 01-01 (5min), 01-02 (3min), 02-01 (4min)
+- Last 5 plans: 01-01 (5min), 01-02 (3min), 02-01 (4min), 02-02 (5min)
 - Trend: Stable
 
 *Updated after each plan completion*
@@ -71,6 +71,10 @@ Recent decisions affecting current work:
 - [Phase 02-01]: Copied template utilities verbatim from worker-template (no modifications needed for STT)
 - [Phase 02-01]: VAD enabled by default with min_silence_duration_ms=500 to prevent Whisper hallucination
 - [Phase 02-01]: condition_on_previous_text=False by default to reduce repeated phrase hallucinations
+- [Phase 02-02]: runpod.serverless.start() guarded by __name__ == '__main__' for test importability
+- [Phase 02-02]: Diarization warning includes HF_TOKEN, pyannote/speaker-diarization-3.1, and user agreement link
+- [Phase 02-02]: Batch processing reuses _process_single with synthetic single-input dicts per URL
+- [Phase 02-02]: PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True set at module level
 
 ### Pending Todos
 
@@ -84,6 +88,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-14T06:20:00.688Z
-Stopped at: Completed 02-01-PLAN.md (Core transcription engine and format utilities)
+Last session: 2026-03-14T06:27:00Z
+Stopped at: Completed 02-02-PLAN.md (Handler with diarization and batch processing)
 Resume file: None
