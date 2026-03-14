@@ -58,10 +58,10 @@ Plans:
 **Success Criteria** (what must be TRUE):
   1. User can specify two or more Kokoro voices with weights and receive speech generated from the blended voice
   2. Blended voice output is audibly distinct from any single input voice, confirming mixing is functional
-**Plans**: TBD
+**Plans**: 1 plan
 
 Plans:
-- [ ] 03-01: TBD
+- [ ] 03-01-PLAN.md — Standalone voice-mixing module with blend logic, validation, patched TTS worker files, and integration instructions
 
 ### Phase 4: Voice Cloning Worker
 **Goal**: Users can clone any voice from a short reference audio clip and generate new speech in that voice -- deployed as a RunPod serverless endpoint with quality safeguards.
@@ -101,6 +101,6 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 |-------|----------------|--------|-----------|
 | 1. Shared Worker Foundation | 2/2 | Complete   | 2026-03-14 |
 | 2. STT Worker | 0/3 | Not started | - |
-| 3. TTS Enhancement | 0/? | Not started | - |
+| 3. TTS Enhancement | 0/1 | Not started | - |
 | 4. Voice Cloning Worker | 0/? | Not started | - |
 | 5. Hub Registry | 0/? | Not started | - |
