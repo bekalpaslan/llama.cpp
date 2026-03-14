@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: completed
-stopped_at: Completed 01-02-PLAN.md (Template Dockerfile and handler skeleton) -- Phase 1 COMPLETE
-last_updated: "2026-03-14T05:51:25.520Z"
-last_activity: 2026-03-14 -- Completed 01-02 (Template Dockerfile and handler skeleton)
+status: executing
+stopped_at: Completed 02-01-PLAN.md (Core transcription engine and format utilities)
+last_updated: "2026-03-14T06:20:00.691Z"
+last_activity: 2026-03-14 -- Completed 02-01 (Core transcription engine and format utilities)
 progress:
   total_phases: 5
   completed_phases: 1
-  total_plans: 2
-  completed_plans: 2
-  percent: 100
+  total_plans: 5
+  completed_plans: 3
+  percent: 60
 ---
 
 # Project State
@@ -21,33 +21,34 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-14)
 
 **Core value:** One-click deployment of AI inference workers on RunPod -- any model type, any GPU, minimal configuration.
-**Current focus:** Phase 1: Shared Worker Foundation (COMPLETE) -- Next: Phase 2: STT Worker
+**Current focus:** Phase 2: STT Worker -- Plan 01 complete, Plan 02 next (handler wiring)
 
 ## Current Position
 
-Phase: 1 of 5 (Shared Worker Foundation) -- COMPLETE
-Plan: 2 of 2 in current phase
-Status: Phase Complete
-Last activity: 2026-03-14 -- Completed 01-02 (Template Dockerfile and handler skeleton)
+Phase: 2 of 5 (STT Worker)
+Plan: 1 of 3 in current phase
+Status: In Progress
+Last activity: 2026-03-14 -- Completed 02-01 (Core transcription engine and format utilities)
 
-Progress: [██████████] 100%
+Progress: [██████░░░░] 60%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 2
+- Total plans completed: 3
 - Average duration: 4 min
-- Total execution time: 0.1 hours
+- Total execution time: 0.2 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 1 - Shared Worker Foundation | 2 | 8 min | 4 min |
+| 2 - STT Worker | 1 | 4 min | 4 min |
 
 **Recent Trend:**
-- Last 5 plans: 01-01 (5min), 01-02 (3min)
-- Trend: Accelerating
+- Last 5 plans: 01-01 (5min), 01-02 (3min), 02-01 (4min)
+- Trend: Stable
 
 *Updated after each plan completion*
 
@@ -67,6 +68,9 @@ Recent decisions affecting current work:
 - Single-stage Dockerfile for audio workers (not two-stage like llama.cpp) since PyTorch is a Python library
 - CUDA 12.4 runtime base (not -devel) to keep image under 8GB
 - Handler uses inline TODO comments for engine customization, not abstract classes
+- [Phase 02-01]: Copied template utilities verbatim from worker-template (no modifications needed for STT)
+- [Phase 02-01]: VAD enabled by default with min_silence_duration_ms=500 to prevent Whisper hallucination
+- [Phase 02-01]: condition_on_previous_text=False by default to reduce repeated phrase hallucinations
 
 ### Pending Todos
 
@@ -80,6 +84,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-14
-Stopped at: Completed 01-02-PLAN.md (Template Dockerfile and handler skeleton) -- Phase 1 COMPLETE
+Last session: 2026-03-14T06:20:00.688Z
+Stopped at: Completed 02-01-PLAN.md (Core transcription engine and format utilities)
 Resume file: None

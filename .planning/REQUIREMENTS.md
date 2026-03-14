@@ -15,12 +15,12 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### STT (Speech-to-Text)
 
-- [ ] **STT-01**: User can transcribe audio using faster-whisper with selectable model sizes (turbo, large-v3)
-- [ ] **STT-02**: Transcription output includes word-level timestamps
-- [ ] **STT-03**: User can get output in plain text, SRT, or VTT subtitle formats
-- [ ] **STT-04**: Worker auto-detects spoken language across 50+ languages
-- [ ] **STT-05**: Worker can translate non-English audio to English text
-- [ ] **STT-06**: VAD (Voice Activity Detection) is enabled by default to prevent hallucination
+- [x] **STT-01**: User can transcribe audio using faster-whisper with selectable model sizes (turbo, large-v3)
+- [x] **STT-02**: Transcription output includes word-level timestamps
+- [x] **STT-03**: User can get output in plain text, SRT, or VTT subtitle formats
+- [x] **STT-04**: Worker auto-detects spoken language across 50+ languages
+- [x] **STT-05**: Worker can translate non-English audio to English text
+- [x] **STT-06**: VAD (Voice Activity Detection) is enabled by default to prevent hallucination
 - [ ] **STT-07**: User can identify who said what via speaker diarization (WhisperX + pyannote)
 - [ ] **STT-08**: User can submit multiple audio files in a single job for batch transcription
 - [ ] **STT-09**: Worker published to RunPod Hub with model presets in hub.json
@@ -88,12 +88,12 @@ Deferred to future release. Tracked but not in current roadmap.
 | INFRA-01 | Phase 1 | Complete |
 | INFRA-02 | Phase 1 | Complete |
 | INFRA-03 | Phase 1 | Complete |
-| STT-01 | Phase 2 | Pending |
-| STT-02 | Phase 2 | Pending |
-| STT-03 | Phase 2 | Pending |
-| STT-04 | Phase 2 | Pending |
-| STT-05 | Phase 2 | Pending |
-| STT-06 | Phase 2 | Pending |
+| STT-01 | Phase 2 | Complete |
+| STT-02 | Phase 2 | Complete |
+| STT-03 | Phase 2 | Complete |
+| STT-04 | Phase 2 | Complete |
+| STT-05 | Phase 2 | Complete |
+| STT-06 | Phase 2 | Complete |
 | STT-07 | Phase 2 | Pending |
 | STT-08 | Phase 2 | Pending |
 | STT-09 | Phase 2 | Pending |
