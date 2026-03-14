@@ -10,28 +10,28 @@ See: .planning/PROJECT.md (updated 2026-03-14)
 ## Current Position
 
 Phase: 1 of 5 (Shared Worker Foundation)
-Plan: 0 of ? in current phase
-Status: Ready to plan
-Last activity: 2026-03-14 -- Roadmap created
+Plan: 1 of 2 in current phase
+Status: Executing
+Last activity: 2026-03-14 -- Completed 01-01 (Core Python utilities)
 
-Progress: [░░░░░░░░░░] 0%
+Progress: [█░░░░░░░░░] 10%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 0
-- Average duration: -
-- Total execution time: 0 hours
+- Total plans completed: 1
+- Average duration: 5 min
+- Total execution time: 0.1 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
-| - | - | - | - |
+| 1 - Shared Worker Foundation | 1 | 5 min | 5 min |
 
 **Recent Trend:**
-- Last 5 plans: -
-- Trend: -
+- Last 5 plans: 01-01 (5min)
+- Trend: Starting
 
 *Updated after each plan completion*
 
@@ -45,6 +45,9 @@ Recent decisions affecting current work:
 - Separate repos per worker type (different build deps, release cycles)
 - Audio workers first (TTS/STT/voice cloning before image gen or embeddings)
 - Chatterbox recommended as primary voice cloning engine (MIT license, commercial-safe)
+- Adapted download_model from llama.cpp version, removing all GGUF-specific code
+- SSRF validation checks private, loopback, and link-local IPs via socket.getaddrinfo
+- Audio extension detection: URL path -> content-type header -> .wav default
 
 ### Pending Todos
 
@@ -59,5 +62,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-03-14
-Stopped at: Roadmap created, ready to plan Phase 1
+Stopped at: Completed 01-01-PLAN.md (Core Python utilities)
 Resume file: None

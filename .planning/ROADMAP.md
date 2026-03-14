@@ -31,7 +31,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans**: 2 plans
 
 Plans:
-- [ ] 01-01-PLAN.md — Core Python utilities: generalized download_model.py and audio_utils.py with full test suite
+- [x] 01-01-PLAN.md — Core Python utilities: generalized download_model.py and audio_utils.py with full test suite
 - [ ] 01-02-PLAN.md — Template Dockerfile, handler skeleton, and supporting files (hub.json, test inputs)
 
 ### Phase 2: STT Worker
@@ -99,7 +99,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Shared Worker Foundation | 0/2 | Planning complete | - |
+| 1. Shared Worker Foundation | 1/2 | In Progress | - |
 | 2. STT Worker | 0/? | Not started | - |
 | 3. TTS Enhancement | 0/? | Not started | - |
 | 4. Voice Cloning Worker | 0/? | Not started | - |
