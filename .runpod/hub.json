@@ -100,7 +100,7 @@
         "HF_REPO_ID": "bartowski/Qwen_Qwen3.5-9B-GGUF",
         "HF_FILENAME": "Qwen_Qwen3.5-9B-Q4_K_M.gguf",
         "MODEL_NAME": "qwen3.5-9b",
-        "CTX_SIZE": "8192"
+        "CTX_SIZE": "32768"
       },
       "gpu": "NVIDIA RTX A4000",
       "volume_size": 20
@@ -112,7 +112,7 @@
         "HF_REPO_ID": "bartowski/Qwen_Qwen3.5-27B-GGUF",
         "HF_FILENAME": "Qwen_Qwen3.5-27B-Q4_K_M.gguf",
         "MODEL_NAME": "qwen3.5-27b",
-        "CTX_SIZE": "8192"
+        "CTX_SIZE": "16384"
       },
       "gpu": "NVIDIA RTX A5000",
       "volume_size": 50
@@ -124,7 +124,7 @@
         "HF_REPO_ID": "bartowski/Qwen_Qwen3.5-4B-GGUF",
         "HF_FILENAME": "Qwen_Qwen3.5-4B-Q4_K_M.gguf",
         "MODEL_NAME": "qwen3.5-4b",
-        "CTX_SIZE": "8192"
+        "CTX_SIZE": "32768"
       },
       "gpu": "NVIDIA RTX A4000",
       "volume_size": 10
@@ -136,7 +136,7 @@
         "HF_REPO_ID": "bartowski/Qwen_Qwen3.5-122B-A10B-GGUF",
         "HF_FILENAME": "Qwen_Qwen3.5-122B-A10B-Q4_K_M.gguf",
         "MODEL_NAME": "qwen3.5-122b-a10b",
-        "CTX_SIZE": "8192"
+        "CTX_SIZE": "4096"
       },
       "gpu": "NVIDIA A100 80GB",
       "volume_size": 150
@@ -148,7 +148,7 @@
         "HF_REPO_ID": "bartowski/DeepSeek-R1-Distill-Qwen-7B-GGUF",
         "HF_FILENAME": "DeepSeek-R1-Distill-Qwen-7B-Q4_K_M.gguf",
         "MODEL_NAME": "deepseek-r1-distill-qwen-7b",
-        "CTX_SIZE": "8192",
+        "CTX_SIZE": "32768",
         "EXTRA_ARGS": "--reasoning-format deepseek"
       },
       "gpu": "NVIDIA RTX A4000",
@@ -161,7 +161,7 @@
         "HF_REPO_ID": "bartowski/DeepSeek-R1-Distill-Qwen-14B-GGUF",
         "HF_FILENAME": "DeepSeek-R1-Distill-Qwen-14B-Q4_K_M.gguf",
         "MODEL_NAME": "deepseek-r1-distill-qwen-14b",
-        "CTX_SIZE": "8192",
+        "CTX_SIZE": "16384",
         "EXTRA_ARGS": "--reasoning-format deepseek"
       },
       "gpu": "NVIDIA RTX A4000",
@@ -187,7 +187,7 @@
         "HF_REPO_ID": "bartowski/DeepSeek-R1-Distill-Llama-8B-GGUF",
         "HF_FILENAME": "DeepSeek-R1-Distill-Llama-8B-Q4_K_M.gguf",
         "MODEL_NAME": "deepseek-r1-distill-llama-8b",
-        "CTX_SIZE": "8192",
+        "CTX_SIZE": "32768",
         "EXTRA_ARGS": "--reasoning-format deepseek"
       },
       "gpu": "NVIDIA RTX A4000",
@@ -200,7 +200,7 @@
         "HF_REPO_ID": "bartowski/Qwen_Qwen3-8B-GGUF",
         "HF_FILENAME": "Qwen_Qwen3-8B-Q4_K_M.gguf",
         "MODEL_NAME": "qwen3-8b",
-        "CTX_SIZE": "8192"
+        "CTX_SIZE": "32768"
       },
       "gpu": "NVIDIA RTX A4000",
       "volume_size": 20
@@ -212,7 +212,7 @@
         "HF_REPO_ID": "bartowski/Qwen_Qwen3-14B-GGUF",
         "HF_FILENAME": "Qwen_Qwen3-14B-Q4_K_M.gguf",
         "MODEL_NAME": "qwen3-14b",
-        "CTX_SIZE": "8192"
+        "CTX_SIZE": "16384"
       },
       "gpu": "NVIDIA RTX A4000",
       "volume_size": 30
@@ -236,7 +236,7 @@
         "HF_REPO_ID": "bartowski/Meta-Llama-3.1-8B-Instruct-GGUF",
         "HF_FILENAME": "Meta-Llama-3.1-8B-Instruct-Q4_K_M.gguf",
         "MODEL_NAME": "llama-3.1-8b-instruct",
-        "CTX_SIZE": "8192"
+        "CTX_SIZE": "32768"
       },
       "gpu": "NVIDIA RTX A4000",
       "volume_size": 20
@@ -260,7 +260,7 @@
         "HF_REPO_ID": "bartowski/mistralai_Mistral-Small-3.2-24B-Instruct-2506-GGUF",
         "HF_FILENAME": "mistralai_Mistral-Small-3.2-24B-Instruct-2506-Q4_K_M.gguf",
         "MODEL_NAME": "mistral-small-3.2-24b",
-        "CTX_SIZE": "8192"
+        "CTX_SIZE": "16384"
       },
       "gpu": "NVIDIA RTX A5000",
       "volume_size": 40
@@ -272,7 +272,7 @@
         "HF_REPO_ID": "bartowski/mistralai_Devstral-Small-2-24B-Instruct-2512-GGUF",
         "HF_FILENAME": "mistralai_Devstral-Small-2-24B-Instruct-2512-Q4_K_M.gguf",
         "MODEL_NAME": "devstral-small-2-24b",
-        "CTX_SIZE": "16384"
+        "CTX_SIZE": "32768"
       },
       "gpu": "NVIDIA RTX A5000",
       "volume_size": 40
@@ -284,7 +284,7 @@
         "HF_REPO_ID": "bartowski/THUDM_GLM-4-9B-0414-GGUF",
         "HF_FILENAME": "THUDM_GLM-4-9B-0414-Q4_K_M.gguf",
         "MODEL_NAME": "glm-4-9b",
-        "CTX_SIZE": "8192"
+        "CTX_SIZE": "32768"
       },
       "gpu": "NVIDIA RTX A4000",
       "volume_size": 20
@@ -296,7 +296,7 @@
         "HF_REPO_ID": "bartowski/phi-4-GGUF",
         "HF_FILENAME": "phi-4-Q4_K_M.gguf",
         "MODEL_NAME": "phi-4",
-        "CTX_SIZE": "8192"
+        "CTX_SIZE": "16384"
       },
       "gpu": "NVIDIA RTX A4000",
       "volume_size": 30
@@ -308,7 +308,7 @@
         "HF_REPO_ID": "bartowski/google_gemma-3-12b-it-GGUF",
         "HF_FILENAME": "google_gemma-3-12b-it-Q4_K_M.gguf",
         "MODEL_NAME": "gemma-3-12b",
-        "CTX_SIZE": "8192"
+        "CTX_SIZE": "16384"
       },
       "gpu": "NVIDIA RTX A4000",
       "volume_size": 20

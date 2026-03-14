@@ -25,7 +25,7 @@ HF_TOKEN = os.environ.get("HF_TOKEN", "")
 MODEL_NAME = os.environ.get("MODEL_NAME", "default")
 
 N_GPU_LAYERS = int(os.environ.get("N_GPU_LAYERS", "99"))
-CTX_SIZE = int(os.environ.get("CTX_SIZE", "8192"))
+CTX_SIZE = int(os.environ.get("CTX_SIZE", "4096"))
 N_PARALLEL = int(os.environ.get("N_PARALLEL", "1"))
 FLASH_ATTN = os.environ.get("FLASH_ATTN", "on")
 KV_CACHE_TYPE = os.environ.get("KV_CACHE_TYPE", "f16")
