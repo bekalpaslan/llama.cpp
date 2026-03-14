@@ -73,11 +73,12 @@ Plans:
   3. Worker rejects reference audio that fails quality validation (too short, low sample rate, poor SNR) with actionable error messages before wasting GPU compute
   4. Output audio is 48kHz and available in both WAV and MP3 formats
   5. Worker is published to RunPod Hub with GPU presets in hub.json and deployable via one-click
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 04-01: TBD
-- [ ] 04-02: TBD
+- [ ] 04-01-PLAN.md — Project scaffold, validate_reference.py (audio quality validation), and voice_clone.py (Chatterbox wrapper) with TDD tests
+- [ ] 04-02-PLAN.md — Handler wiring validation, cloning, and output encoding with comprehensive tests
+- [ ] 04-03-PLAN.md — Dockerfile, requirements.txt, hub.json presets (Turbo/Multilingual/Original), and test inputs
 
 ### Phase 5: Hub Registry
 **Goal**: Users can discover all published RunPod workers (LLM, STT, TTS, Voice Cloning) from a single central registry with deployment info.
@@ -102,5 +103,5 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 | 1. Shared Worker Foundation | 2/2 | Complete   | 2026-03-14 |
 | 2. STT Worker | 0/3 | Not started | - |
 | 3. TTS Enhancement | 0/1 | Not started | - |
-| 4. Voice Cloning Worker | 0/? | Not started | - |
+| 4. Voice Cloning Worker | 0/3 | Not started | - |
 | 5. Hub Registry | 0/? | Not started | - |
