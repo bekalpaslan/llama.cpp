@@ -5,7 +5,7 @@ dist/
 build/
 .eggs/
 *.egg
-
+CLAUDE.md
 .env
 .env.*
 

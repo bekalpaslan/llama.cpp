@@ -31,10 +31,9 @@ FROM nvidia/cuda:12.4.1-runtime-ubuntu22.04
 # Copy cuBLAS from builder (runtime image only has libcudart)
 COPY --from=builder /usr/local/cuda/lib64/libcublas*.so* /usr/local/cuda/lib64/
 COPY --from=builder /usr/local/cuda/lib64/libcublasLt*.so* /usr/local/cuda/lib64/
-RUN ldconfig
-
-# Install Python
-RUN apt-get update && apt-get install -y --no-install-recommends \
+# Install Python and update linker cache
+RUN ldconfig && \
+    apt-get update && apt-get install -y --no-install-recommends \
     python3 python3-pip \
     && rm -rf /var/lib/apt/lists/* \
     && ln -sf /usr/bin/python3 /usr/bin/python
