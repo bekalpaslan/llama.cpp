@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: executing
-stopped_at: Completed 02-02-PLAN.md (Handler with diarization and batch processing)
-last_updated: "2026-03-14T06:20:00.691Z"
-last_activity: 2026-03-14 -- Completed 02-02 (Handler with diarization and batch processing)
+status: completed
+stopped_at: Completed 02-03-PLAN.md (Dockerfile and deployment configuration) -- Phase 2 complete
+last_updated: "2026-03-14T06:35:29.084Z"
+last_activity: 2026-03-14 -- Completed 02-03 (Dockerfile and deployment configuration)
 progress:
   total_phases: 5
-  completed_phases: 1
+  completed_phases: 2
   total_plans: 5
-  completed_plans: 4
-  percent: 80
+  completed_plans: 5
+  percent: 100
 ---
 
 # Project State
@@ -21,21 +21,21 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-14)
 
 **Core value:** One-click deployment of AI inference workers on RunPod -- any model type, any GPU, minimal configuration.
-**Current focus:** Phase 2: STT Worker -- Plan 02 complete, Plan 03 next (Dockerfile and deployment)
+**Current focus:** Phase 2: STT Worker -- All 3 plans complete, phase done
 
 ## Current Position
 
 Phase: 2 of 5 (STT Worker)
-Plan: 2 of 3 in current phase
-Status: In Progress
-Last activity: 2026-03-14 -- Completed 02-02 (Handler with diarization and batch processing)
+Plan: 3 of 3 in current phase
+Status: Phase Complete
+Last activity: 2026-03-14 -- Completed 02-03 (Dockerfile and deployment configuration)
 
-Progress: [████████░░] 80%
+Progress: [██████████] 100%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 4
+- Total plans completed: 5
 - Average duration: 4 min
 - Total execution time: 0.3 hours
 
@@ -44,10 +44,10 @@ Progress: [████████░░] 80%
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 1 - Shared Worker Foundation | 2 | 8 min | 4 min |
-| 2 - STT Worker | 2 | 9 min | 4.5 min |
+| 2 - STT Worker | 3 | 12 min | 4 min |
 
 **Recent Trend:**
-- Last 5 plans: 01-01 (5min), 01-02 (3min), 02-01 (4min), 02-02 (5min)
+- Last 5 plans: 01-01 (5min), 01-02 (3min), 02-01 (4min), 02-02 (5min), 02-03 (3min)
 - Trend: Stable
 
 *Updated after each plan completion*
@@ -75,6 +75,9 @@ Recent decisions affecting current work:
 - [Phase 02-02]: Diarization warning includes HF_TOKEN, pyannote/speaker-diarization-3.1, and user agreement link
 - [Phase 02-02]: Batch processing reuses _process_single with synthetic single-input dicts per URL
 - [Phase 02-02]: PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True set at module level
+- [Phase 02-03]: Separate RUN commands in Dockerfile for faster-whisper and whisperx to enforce install order
+- [Phase 02-03]: Three hub.json presets: turbo/INT8 on T4, large-v3/FP16 on A4000, turbo+diarize on A4000
+- [Phase 02-03]: MODEL_NAME defaults to 'whisper-stt' in Dockerfile (not 'default' like template)
 
 ### Pending Todos
 
@@ -88,6 +91,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-14T06:27:00Z
-Stopped at: Completed 02-02-PLAN.md (Handler with diarization and batch processing)
+Last session: 2026-03-14T06:35:29.079Z
+Stopped at: Completed 02-03-PLAN.md (Dockerfile and deployment configuration) -- Phase 2 complete
 Resume file: None

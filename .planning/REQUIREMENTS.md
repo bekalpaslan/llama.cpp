@@ -23,7 +23,7 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **STT-06**: VAD (Voice Activity Detection) is enabled by default to prevent hallucination
 - [x] **STT-07**: User can identify who said what via speaker diarization (WhisperX + pyannote)
 - [x] **STT-08**: User can submit multiple audio files in a single job for batch transcription
-- [ ] **STT-09**: Worker published to RunPod Hub with model presets in hub.json
+- [x] **STT-09**: Worker published to RunPod Hub with model presets in hub.json
 
 ### TTS (Text-to-Speech) Enhancements
 
@@ -96,7 +96,7 @@ Deferred to future release. Tracked but not in current roadmap.
 | STT-06 | Phase 2 | Complete |
 | STT-07 | Phase 2 | Complete |
 | STT-08 | Phase 2 | Complete |
-| STT-09 | Phase 2 | Pending |
+| STT-09 | Phase 2 | Complete |
 | TTS-01 | Phase 3 | Pending |
 | VC-01 | Phase 4 | Pending |
 | VC-02 | Phase 4 | Pending |
