@@ -35,7 +35,7 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **VC-02**: User can generate cloned speech in multiple languages (cross-lingual synthesis)
 - [x] **VC-03**: Worker validates reference audio quality before inference (duration, sample rate, SNR checks)
 - [x] **VC-04**: Worker outputs audio at 48kHz in WAV and MP3 formats
-- [ ] **VC-05**: Worker published to RunPod Hub with GPU presets in hub.json
+- [x] **VC-05**: Worker published to RunPod Hub with GPU presets in hub.json
 
 ### Hub Registry
 
@@ -102,7 +102,7 @@ Deferred to future release. Tracked but not in current roadmap.
 | VC-02 | Phase 4 | Complete |
 | VC-03 | Phase 4 | Complete |
 | VC-04 | Phase 4 | Complete |
-| VC-05 | Phase 4 | Pending |
+| VC-05 | Phase 4 | Complete |
 | HUB-01 | Phase 5 | Pending |
 | HUB-02 | Phase 5 | Pending |
 

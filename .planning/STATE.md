@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: executing
-stopped_at: Completed 04-01-PLAN.md (Core voice cloning modules)
-last_updated: "2026-03-14T13:06:51.155Z"
-last_activity: 2026-03-14 -- Completed 04-01 (Core voice cloning modules)
+stopped_at: Completed 04-03-PLAN.md (Dockerfile and hub presets)
+last_updated: "2026-03-14T13:12:33Z"
+last_activity: 2026-03-14 -- Completed 04-03 (Dockerfile and hub presets)
 progress:
   total_phases: 5
-  completed_phases: 3
+  completed_phases: 4
   total_plans: 9
-  completed_plans: 8
-  percent: 89
+  completed_plans: 9
+  percent: 100
 ---
 
 # Project State
@@ -21,23 +21,23 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-14)
 
 **Core value:** One-click deployment of AI inference workers on RunPod -- any model type, any GPU, minimal configuration.
-**Current focus:** Phase 4: Voice Cloning Worker -- 2 of 3 plans complete
+**Current focus:** Phase 4: Voice Cloning Worker -- 3 of 3 plans complete (phase done)
 
 ## Current Position
 
 Phase: 4 of 5 (Voice Cloning Worker)
 Plan: 3 of 3 in current phase
-Status: In Progress
-Last activity: 2026-03-14 -- Completed 04-02 (Handler integration)
+Status: Phase Complete
+Last activity: 2026-03-14 -- Completed 04-03 (Dockerfile and hub presets)
 
-Progress: [█████████░] 89%
+Progress: [██████████] 100%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 8
+- Total plans completed: 9
 - Average duration: 5 min
-- Total execution time: 0.6 hours
+- Total execution time: 0.7 hours
 
 **By Phase:**
 
@@ -46,11 +46,11 @@ Progress: [█████████░] 89%
 | 1 - Shared Worker Foundation | 2 | 8 min | 4 min |
 | 2 - STT Worker | 3 | 12 min | 4 min |
 | 3 - TTS Enhancement | 1 | 4 min | 4 min |
-| 4 - Voice Cloning Worker | 2 | 12 min | 6 min |
+| 4 - Voice Cloning Worker | 3 | 15 min | 5 min |
 
 **Recent Trend:**
-- Last 5 plans: 02-02 (5min), 02-03 (3min), 03-01 (4min), 04-01 (8min), 04-02 (4min)
-- Trend: Stable (TDD plans take longer due to RED-GREEN cycle)
+- Last 5 plans: 02-03 (3min), 03-01 (4min), 04-01 (8min), 04-02 (4min), 04-03 (3min)
+- Trend: Stable (non-TDD plans fastest at 3-4min)
 
 *Updated after each plan completion*
 
@@ -89,6 +89,9 @@ Recent decisions affecting current work:
 - [Phase 04-01]: Copied template utilities verbatim (same pattern as Phase 2)
 - [Phase 04-02]: Module-level load_model patched before import for test isolation (same pattern as worker-whisper)
 - [Phase 04-02]: Handler maps reference_audio_url/base64 to audio_url/audio_base64 keys for resolve_audio_input compatibility
+- [Phase 04-03]: Single-stage Dockerfile (not two-stage like llama.cpp) since PyTorch is a pip package
+- [Phase 04-03]: HF_HOME set in Dockerfile ENV for persistent model caching across cold starts
+- [Phase 04-03]: MODEL_VARIANT defaults to multilingual for broadest language coverage
 
 ### Pending Todos
 
@@ -102,6 +105,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-14T13:05:49Z
-Stopped at: Completed 04-02-PLAN.md (Handler integration)
+Last session: 2026-03-14T13:12:33Z
+Stopped at: Completed 04-03-PLAN.md (Dockerfile and hub presets)
 Resume file: None
