@@ -1,0 +1,37 @@
+{
+  "name": "Voice Cloning Worker",
+  "description": "Zero-shot voice cloning from 5-30s reference audio. Clone any voice and generate speech in 23 languages. Powered by Chatterbox TTS (MIT license).",
+  "category": "voice-cloning",
+  "presets": [
+    {
+      "name": "Voice Clone - Turbo (English)",
+      "description": "Fast English voice cloning with Chatterbox Turbo. 350M params, optimized for speed. Supports paralinguistic tags ([laugh], [cough]).",
+      "env": {
+        "MODEL_VARIANT": "turbo",
+        "MODEL_NAME": "voice-clone-turbo"
+      },
+      "gpu": "NVIDIA T4",
+      "volume_size": 10
+    },
+    {
+      "name": "Voice Clone - Multilingual (23 languages)",
+      "description": "Cross-lingual voice cloning with Chatterbox Multilingual. 500M params. Clone a voice in one language, generate speech in any of 23 languages.",
+      "env": {
+        "MODEL_VARIANT": "multilingual",
+        "MODEL_NAME": "voice-clone-multilingual"
+      },
+      "gpu": "NVIDIA RTX A4000",
+      "volume_size": 10
+    },
+    {
+      "name": "Voice Clone - Original (English, Emotion Control)",
+      "description": "English voice cloning with emotion/expressiveness control. 500M params. Adjust exaggeration and cfg_weight for creative voice generation.",
+      "env": {
+        "MODEL_VARIANT": "original",
+        "MODEL_NAME": "voice-clone-original"
+      },
+      "gpu": "NVIDIA RTX A4000",
+      "volume_size": 10
+    }
+  ]
+}

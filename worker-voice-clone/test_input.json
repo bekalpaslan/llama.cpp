@@ -1,0 +1,10 @@
+{
+  "input": {
+    "text": "Hello, this is a voice cloning test. The quick brown fox jumps over the lazy dog.",
+    "reference_audio_url": "https://github.com/runpod-workers/sample-inputs/raw/main/audio/gettysburg.wav",
+    "language": "en",
+    "output_format": "wav",
+    "exaggeration": 0.5,
+    "cfg_weight": 0.5
+  }
+}
