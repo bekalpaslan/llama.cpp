@@ -39,7 +39,7 @@ created: 2026-03-14
 | Task ID | Plan | Wave | Requirement | Test Type | Automated Command | File Exists | Status |
 |---------|------|------|-------------|-----------|-------------------|-------------|--------|
 | 04-01-01 | 01 | 1 | VC-03 | unit | `pytest tests/test_validate_reference.py -x` | ❌ W0 | ⬜ pending |
-| 04-01-02 | 01 | 1 | VC-01, VC-02, VC-04 | unit | `pytest tests/test_clone.py -x` | ❌ W0 | ⬜ pending |
+| 04-01-02 | 01 | 1 | VC-01, VC-02, VC-04 | unit | `pytest tests/test_voice_clone.py -x` | ❌ W0 | ⬜ pending |
 | 04-02-01 | 02 | 2 | VC-01, VC-03 | unit | `pytest tests/test_handler.py -x` | ❌ W0 | ⬜ pending |
 | 04-03-01 | 03 | 3 | VC-05 | unit | `pytest tests/test_hub.py -x` | ❌ W0 | ⬜ pending |
 
@@ -50,7 +50,7 @@ created: 2026-03-14
 ## Wave 0 Requirements
 
 - [ ] `tests/test_validate_reference.py` — stubs for VC-03 (duration, sample rate, SNR checks)
-- [ ] `tests/test_clone.py` — stubs for VC-01, VC-02, VC-04 (zero-shot cloning, cross-lingual, output format)
+- [ ] `tests/test_voice_clone.py` — stubs for VC-01, VC-02, VC-04 (zero-shot cloning, cross-lingual, output format)
 - [ ] `tests/test_handler.py` — stubs for handler routing and validation integration
 - [ ] `tests/conftest.py` — shared fixtures (mock Chatterbox model, sample audio)
 - [ ] `pytest` — install via pyproject.toml
