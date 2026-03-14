@@ -11,7 +11,7 @@ Requirements for initial release. Each maps to roadmap phases.
 
 - [x] **INFRA-01**: Worker accepts audio input via URL download or base64 encoding
 - [x] **INFRA-02**: Worker template provides generalized model download utility (adapted from llama.cpp worker's download_model.py)
-- [ ] **INFRA-03**: Worker Dockerfile follows slim multi-stage build pattern for minimal image size
+- [x] **INFRA-03**: Worker Dockerfile follows slim multi-stage build pattern for minimal image size
 
 ### STT (Speech-to-Text)
 
@@ -87,7 +87,7 @@ Deferred to future release. Tracked but not in current roadmap.
 |-------------|-------|--------|
 | INFRA-01 | Phase 1 | Complete |
 | INFRA-02 | Phase 1 | Complete |
-| INFRA-03 | Phase 1 | Pending |
+| INFRA-03 | Phase 1 | Complete |
 | STT-01 | Phase 2 | Pending |
 | STT-02 | Phase 2 | Pending |
 | STT-03 | Phase 2 | Pending |

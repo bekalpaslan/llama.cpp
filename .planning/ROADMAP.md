@@ -12,7 +12,7 @@ This roadmap expands the RunPod Workers Hub from a single llama.cpp LLM worker i
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Shared Worker Foundation** - Reusable audio worker template with model download, audio I/O, and slim Dockerfile pattern
+- [x] **Phase 1: Shared Worker Foundation** - Reusable audio worker template with model download, audio I/O, and slim Dockerfile pattern (completed 2026-03-14)
 - [ ] **Phase 2: STT Worker** - Speech-to-text worker with faster-whisper, diarization, and subtitle output
 - [ ] **Phase 3: TTS Enhancement** - Voice mixing capability added to the existing TTS worker
 - [ ] **Phase 4: Voice Cloning Worker** - Zero-shot voice cloning worker with reference audio validation
@@ -32,7 +32,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 Plans:
 - [x] 01-01-PLAN.md — Core Python utilities: generalized download_model.py and audio_utils.py with full test suite
-- [ ] 01-02-PLAN.md — Template Dockerfile, handler skeleton, and supporting files (hub.json, test inputs)
+- [x] 01-02-PLAN.md — Template Dockerfile, handler skeleton, and supporting files (hub.json, test inputs)
 
 ### Phase 2: STT Worker
 **Goal**: Users can transcribe audio with word-level timestamps, subtitle output, automatic language detection, speaker diarization, and batch processing -- deployed as a RunPod serverless endpoint with one-click setup.
@@ -99,7 +99,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Shared Worker Foundation | 1/2 | In Progress | - |
+| 1. Shared Worker Foundation | 2/2 | Complete   | 2026-03-14 |
 | 2. STT Worker | 0/? | Not started | - |
 | 3. TTS Enhancement | 0/? | Not started | - |
 | 4. Voice Cloning Worker | 0/? | Not started | - |
