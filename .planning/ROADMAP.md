@@ -87,10 +87,10 @@ Plans:
 **Success Criteria** (what must be TRUE):
   1. This repo contains a registry that links to every published worker repo with descriptions, Docker image references, and deployment instructions
   2. A user visiting this repo can find and navigate to any worker type and understand how to deploy it on RunPod
-**Plans**: TBD
+**Plans**: 1 plan
 
 Plans:
-- [ ] 05-01: TBD
+- [ ] 05-01-PLAN.md — Rewrite README.md as central hub registry linking all 4 worker types with descriptions, deployment info, and hub.json presets
 
 ## Progress
 
@@ -104,4 +104,4 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 | 2. STT Worker | 0/3 | Not started | - |
 | 3. TTS Enhancement | 0/1 | Not started | - |
 | 4. Voice Cloning Worker | 0/3 | Not started | - |
-| 5. Hub Registry | 0/? | Not started | - |
+| 5. Hub Registry | 0/1 | Not started | - |
