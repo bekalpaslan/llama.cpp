@@ -44,12 +44,12 @@ Plans:
   3. User can get speaker-attributed transcription (who said what) via diarization, with graceful degradation when HF_TOKEN is not configured
   4. User can submit multiple audio files in a single job and receive batch results, with VAD enabled by default to prevent hallucination on silence
   5. Worker is published to RunPod Hub with model presets (turbo on T4, large-v3 on A4000) and deployable via one-click
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 02-01: TBD
-- [ ] 02-02: TBD
-- [ ] 02-03: TBD
+- [ ] 02-01-PLAN.md — Copy template, project setup, transcription engine (transcribe.py) and output formatting (format_output.py) with tests
+- [ ] 02-02-PLAN.md — Handler with diarization support, batch processing, and graceful HF_TOKEN degradation
+- [ ] 02-03-PLAN.md — Dockerfile, requirements.txt, hub.json presets, and test inputs for deployment
 
 ### Phase 3: TTS Enhancement
 **Goal**: Users of the existing TTS worker can blend multiple voices with weighted mixing for creative voice design.
@@ -100,7 +100,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Shared Worker Foundation | 2/2 | Complete   | 2026-03-14 |
-| 2. STT Worker | 0/? | Not started | - |
+| 2. STT Worker | 0/3 | Not started | - |
 | 3. TTS Enhancement | 0/? | Not started | - |
 | 4. Voice Cloning Worker | 0/? | Not started | - |
 | 5. Hub Registry | 0/? | Not started | - |
