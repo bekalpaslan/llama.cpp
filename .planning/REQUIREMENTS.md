@@ -27,7 +27,7 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### TTS (Text-to-Speech) Enhancements
 
-- [ ] **TTS-01**: User can blend multiple voices with weighted mixing (Kokoro voice mixing)
+- [x] **TTS-01**: User can blend multiple voices with weighted mixing (Kokoro voice mixing)
 
 ### Voice Cloning
 
@@ -97,7 +97,7 @@ Deferred to future release. Tracked but not in current roadmap.
 | STT-07 | Phase 2 | Complete |
 | STT-08 | Phase 2 | Complete |
 | STT-09 | Phase 2 | Complete |
-| TTS-01 | Phase 3 | Pending |
+| TTS-01 | Phase 3 | Complete |
 | VC-01 | Phase 4 | Pending |
 | VC-02 | Phase 4 | Pending |
 | VC-03 | Phase 4 | Pending |
