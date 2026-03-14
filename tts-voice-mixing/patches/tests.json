@@ -1,0 +1,71 @@
+{
+  "tests": [
+    {
+      "name": "Generate speech (default voice)",
+      "input": {
+        "text": "Hello, this is a test of the text to speech system.",
+        "voice": "af_heart",
+        "speed": 1.0,
+        "response_format": "wav"
+      },
+      "expected_status": 200
+    },
+    {
+      "name": "Generate speech (male voice)",
+      "input": {
+        "text": "Testing with a male voice.",
+        "voice": "am_adam",
+        "speed": 1.0,
+        "response_format": "wav"
+      },
+      "expected_status": 200
+    },
+    {
+      "name": "List available voices",
+      "input": {
+        "action": "list_voices"
+      },
+      "expected_status": 200
+    },
+    {
+      "name": "Voice blend (equal weight)",
+      "input": {
+        "text": "This is a blended voice with equal weights.",
+        "voice": "af_heart,af_bella",
+        "speed": 1.0,
+        "response_format": "wav"
+      },
+      "expected_status": 200
+    },
+    {
+      "name": "Voice blend (weighted)",
+      "input": {
+        "text": "This is a weighted voice blend, seventy thirty.",
+        "voice": "af_heart:70,af_bella:30",
+        "speed": 1.0,
+        "response_format": "wav"
+      },
+      "expected_status": 200
+    },
+    {
+      "name": "Voice blend (3 voices)",
+      "input": {
+        "text": "This is a three-voice blend with different weights.",
+        "voice": "af_heart:50,af_bella:30,af_sarah:20",
+        "speed": 1.0,
+        "response_format": "wav"
+      },
+      "expected_status": 200
+    },
+    {
+      "name": "Voice blend (invalid - cross language)",
+      "input": {
+        "text": "This should return an error for cross-language blending.",
+        "voice": "af_heart:50,jf_alpha:50",
+        "speed": 1.0,
+        "response_format": "wav"
+      },
+      "expected_status": 200
+    }
+  ]
+}
