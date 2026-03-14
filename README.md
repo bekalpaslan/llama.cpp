@@ -10,7 +10,7 @@ RunPod Serverless worker that serves any GGUF model from HuggingFace via llama.c
 - **Streaming** — SSE streaming via RunPod's `/stream` endpoint
 - **GPU acceleration** — CUDA with flash attention, quantized KV cache
 - **Network volume caching** — download once, reuse across cold starts
-- **19 pre-configured model presets** — Qwen 3.5, DeepSeek R1, Llama 3, Mistral, Phi-4, Gemma 3, and more
+- **35 pre-configured model presets** — Qwen 3.5, DeepSeek R1, Llama 3/4, Mistral, Phi-4, Gemma 3, and more
 
 ## Quick Start
 
@@ -84,30 +84,53 @@ Add `"stream": true` to any messages or OpenAI passthrough input. Poll the `/str
 | `HF_TOKEN` | | Auth token for gated models |
 | `MODEL_NAME` | `default` | Display name in `/v1/models` |
 | `N_GPU_LAYERS` | `99` | GPU layers to offload (99 = all) |
-| `CTX_SIZE` | `8192` | Context window size |
+| `CTX_SIZE` | `4096` | Context window size |
 | `N_PARALLEL` | `1` | Concurrent inference slots |
 | `FLASH_ATTN` | `on` | Flash attention (on/off/auto) |
 | `KV_CACHE_TYPE` | `f16` | KV cache type: f16, q8_0, q4_0 |
 | `EXTRA_ARGS` | | Additional llama-server flags |
+| `STARTUP_TIMEOUT` | `600` | Seconds to wait for llama-server to start |
 
 ## Model Presets
 
-| Model | Active Params | VRAM (Q4_K_M) | Recommended GPU |
-|-------|--------------|---------------|-----------------|
-| Qwen 3.5 35B-A3B | 3B | ~23 GB | RTX A5000 24GB |
-| Qwen 3.5 9B | 9B | ~7 GB | RTX A4000 16GB |
-| Qwen 3.5 27B | 27B | ~19 GB | RTX A5000 24GB |
-| Qwen 3.5 4B | 4B | ~4 GB | RTX A4000 16GB |
-| Qwen 3.5 122B-A10B | 10B | ~76 GB | A100 80GB |
-| DeepSeek R1 Distill 7B | 7B | ~5 GB | RTX A4000 16GB |
-| DeepSeek R1 Distill 14B | 14B | ~9 GB | RTX A4000 16GB |
-| DeepSeek R1 Distill 32B | 32B | ~20 GB | RTX A5000 24GB |
-| Llama 3.3 70B | 70B | ~42 GB | A6000 48GB |
-| Mistral Small 3.2 24B | 24B | ~14 GB | RTX A5000 24GB |
-| Devstral Small 2 24B | 24B | ~14 GB | RTX A5000 24GB |
-| Phi-4 14B | 14B | ~9 GB | RTX A4000 16GB |
-| Gemma 3 12B | 12B | ~7 GB | RTX A4000 16GB |
-| GLM-4 9B | 9B | ~6 GB | RTX A4000 16GB |
+| Model | Recommended GPU |
+|-------|-----------------|
+| Qwen 3.5 35B-A3B | RTX A5000 |
+| Qwen 3.5 9B | RTX A4000 |
+| Qwen 3.5 27B | RTX A5000 |
+| Qwen 3.5 4B | RTX A4000 |
+| Qwen 3.5 122B-A10B | A100 80GB |
+| DeepSeek R1 Distill Qwen 7B | RTX A4000 |
+| DeepSeek R1 Distill Qwen 14B | RTX A4000 |
+| DeepSeek R1 Distill Qwen 32B | RTX A5000 |
+| DeepSeek R1 Distill Llama 8B | RTX A4000 |
+| Qwen 3 8B | RTX A4000 |
+| Qwen 3 14B | RTX A4000 |
+| Qwen 3 32B | RTX A5000 |
+| Qwen 3 30B-A3B | RTX A5000 |
+| Qwen3 Coder Next 80B-A3B | A6000 |
+| Qwen 2.5 Coder 32B | RTX A5000 |
+| Qwen 2.5 Coder 14B | RTX A4000 |
+| Qwen 2.5 Coder 7B | RTX A4000 |
+| QwQ-32B | RTX A5000 |
+| Llama 4 Scout 17B-16E | A6000 |
+| Llama 3.3 70B Instruct | A6000 |
+| Llama 3.1 8B Instruct | RTX A4000 |
+| Llama 3.2 3B Instruct | RTX A4000 |
+| Mistral Small 3.2 24B | RTX A5000 |
+| Mistral Nemo 12B | RTX A4000 |
+| Devstral Small 2 24B | RTX A5000 |
+| Phi-4 14B | RTX A4000 |
+| Phi-4 Reasoning Plus 14B | RTX A4000 |
+| Phi-4 Mini Reasoning 3.8B | RTX A4000 |
+| Gemma 3 27B | RTX A5000 |
+| Gemma 3 12B | RTX A4000 |
+| Gemma 3 4B | RTX A4000 |
+| GLM-4 9B | RTX A4000 |
+| GLM-4.7 Flash 30B-A3B | RTX A4000 |
+| Hermes 4 14B | RTX A4000 |
+| OpenAI GPT-oss 20B | RTX A5000 |
+| SmolLM3 3B | RTX A4000 |
 
 ## Local Testing
 
