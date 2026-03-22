@@ -2,6 +2,10 @@
   "title": "LlamaCpp GGUF Worker",
   "description": "Serve any GGUF model from HuggingFace via llama.cpp with an OpenAI-compatible API. Supports GPU offloading, flash attention, quantized KV cache, and streaming.",
   "category": "llm",
+  "version": "1.0.0",
+  "image": "alpaslanbek/llamacpp-worker:latest",
+  "author": "alpaslanbek",
+  "tags": ["llm", "gguf", "llama-cpp", "openai-compatible", "qwen", "deepseek", "llama", "mistral", "phi", "gemma", "streaming"],
   "env": [
     {
       "key": "HF_REPO_ID",
