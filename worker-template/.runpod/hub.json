@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schema.runpod.io/worker/v1/hub.json",
+  "version": "1.0.0",
+  "name": "audio-worker-template",
+  "description": "Template for RunPod audio workers. Customize for your engine.",
+  "category": "audio",
+  "presets": [
+    {
+      "name": "Example Preset",
+      "description": "Replace with your model preset",
+      "env": {
+        "HF_REPO_ID": "org/model-repo",
+        "MODEL_NAME": "example-model"
+      },
+      "gpu": "NVIDIA RTX A5000",
+      "volume_size": 20
+    }
+  ]
+}

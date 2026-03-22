@@ -1,0 +1,40 @@
+{
+  "name": "Whisper STT Worker",
+  "description": "Speech-to-text transcription with faster-whisper. Supports word-level timestamps, SRT/VTT output, speaker diarization (WhisperX + pyannote), auto language detection, translation, and batch processing.",
+  "category": "speech-to-text",
+  "presets": [
+    {
+      "name": "Whisper large-v3-turbo (INT8)",
+      "description": "Fast transcription with large-v3-turbo model. INT8 quantization for efficient T4 deployment. Best speed/accuracy tradeoff for most use cases.",
+      "env": {
+        "MODEL_SIZE": "large-v3-turbo",
+        "COMPUTE_TYPE": "int8",
+        "MODEL_NAME": "whisper-turbo"
+      },
+      "gpu": "NVIDIA T4",
+      "volume_size": 10
+    },
+    {
+      "name": "Whisper large-v3 (FP16)",
+      "description": "Highest accuracy transcription with large-v3 model. FP16 for best quality. Recommended for professional transcription requiring maximum accuracy.",
+      "env": {
+        "MODEL_SIZE": "large-v3",
+        "COMPUTE_TYPE": "float16",
+        "MODEL_NAME": "whisper-large-v3"
+      },
+      "gpu": "NVIDIA RTX A4000",
+      "volume_size": 10
+    },
+    {
+      "name": "Whisper large-v3-turbo + Diarization (INT8)",
+      "description": "Turbo transcription with speaker diarization via WhisperX + pyannote. Requires HF_TOKEN with pyannote model access. Identifies who said what.",
+      "env": {
+        "MODEL_SIZE": "large-v3-turbo",
+        "COMPUTE_TYPE": "int8",
+        "MODEL_NAME": "whisper-turbo-diarize"
+      },
+      "gpu": "NVIDIA RTX A4000",
+      "volume_size": 10
+    }
+  ]
+}

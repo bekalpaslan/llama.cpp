@@ -1,0 +1,12 @@
+{
+  "input": {
+    "audio_url": "https://github.com/runpod-workers/sample-inputs/raw/main/audio/gettysburg.wav",
+    "language": null,
+    "task": "transcribe",
+    "word_timestamps": true,
+    "output_format": "json",
+    "diarize": false,
+    "beam_size": 5,
+    "temperature": 0.0
+  }
+}
